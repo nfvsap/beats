@@ -9,6 +9,7 @@
         The period the server is up (sec)
     - name: mem.bytes
       type: long
+      format: bytes
       description: >
         The current memory usage of NATS process
     - name: cores
@@ -16,11 +17,12 @@
       description: >
         The number of logical cores the NATS process runs on
     - name: cpu
-      type: float
+      type: scaled_float
+      format: percent
       description: >
         The current cpu usage of NATs process
     - name: total_connections
-      type: integer
+      type: long
       description: >
         The number of totally created clients
     - name: remotes
@@ -33,11 +35,12 @@
         The amount of incoming data
       fields:
         - name: messages
-          type: integer
+          type: long
           description: >
             The amount of incoming messages
         - name: bytes
-          type: integer
+          type: long
+          format: bytes
           description: >
             The amount of incoming bytes
     - name: out
@@ -46,15 +49,16 @@
         The amount of outgoing data
       fields:
         - name: messages
-          type: integer
+          type: long
           description: >
             The amount of outgoing messages
         - name: bytes
-          type: integer
+          type: long
+          format: bytes
           description: >
             The amount of outgoing bytes
     - name: slow_consumers
-      type: integer
+      type: long
       description: >
         The number of slow consumers currently on NATS
     - name: http_req_stats.root_uri
@@ -93,22 +97,22 @@
                 The request distribution on monitoring URIS
               fields:
                 - name: routez
-                  type: integer
+                  type: long
                   description: >
                     The number of hits on routez monitoring uri
                 - name: connz
-                  type: integer
+                  type: long
                   description: >
                     The number of hits on connz monitoring uri
                 - name: varz
-                  type: integer
+                  type: long
                   description: >
                     The number of hits on varz monitoring uri
                 - name: subsz
-                  type: integer
+                  type: long
                   description: >
                     The number of hits on subsz monitoring uri
                 - name: root
-                  type: integer
+                  type: long
                   description: >
                     The number of hits on root monitoring uri
